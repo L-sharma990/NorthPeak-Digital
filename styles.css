@@ -597,7 +597,15 @@ input:focus, textarea:focus {
 }
 
 /* --------------------------------------------------------------------------
-   13. Responsive Breakpoints
+   13. Performance: Defer below-fold rendering
+   -------------------------------------------------------------------------- */
+#services, #results, #pricing, #contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* --------------------------------------------------------------------------
+   14. Responsive Breakpoints
    -------------------------------------------------------------------------- */
 
 /* sm (640px) */
