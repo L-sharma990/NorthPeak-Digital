@@ -648,3 +648,18 @@ input:focus, textarea:focus {
   .lg\:text-7xl { font-size: 4.5rem; line-height: 1; }
 }
 
+/* --------------------------------------------------------------------------
+   15. Mobile Performance Optimizations
+   -------------------------------------------------------------------------- */
+@media (max-width: 767px) {
+  .blur-3xl {
+    filter: blur(16px);
+  }
+  .animate-float {
+    animation: none !important;
+  }
+  .btn-shimmer::after {
+    animation: none !important;
+  }
+}
+
