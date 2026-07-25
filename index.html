@@ -6,62 +6,8 @@
   <title>NorthPeak Digital — Elevate Your Digital Presence</title>
   <meta name="description" content="NorthPeak Digital is a full-service digital agency specializing in web development, branding, SEO, and growth marketing. Get a free consultation today." />
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-            display: ['Outfit', 'system-ui', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50:  '#eef6ff',
-              100: '#d9eaff',
-              200: '#bcdaff',
-              300: '#8ec3ff',
-              400: '#59a1ff',
-              500: '#3478ff',
-              600: '#1a56f5',
-              700: '#1543e1',
-              800: '#1737b6',
-              900: '#19338f',
-              950: '#142157',
-            },
-            surface: {
-              50:  '#f8fafc',
-              100: '#f1f5f9',
-              200: '#e2e8f0',
-              800: '#1e293b',
-              900: '#0f172a',
-              950: '#020617',
-            }
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.6s ease-out forwards',
-            'slide-up': 'slideUp 0.6s ease-out forwards',
-            'float': 'float 6s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            slideUp: {
-              '0%': { opacity: '0', transform: 'translateY(30px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-12px)' },
-            },
-          },
-        },
-      },
-    }
-  </script>
+  <!-- Standalone Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -811,7 +757,7 @@
               Built for <a href="https://digitalheroesco.com" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 underline underline-offset-2 transition-colors">Digital Heroes</a> Training Task
             </p>
             <p class="text-surface-200/40 text-xs mt-1">
-              Live URL: <span class="text-surface-200/50">[Insert Deployed Link Here]</span>
+              Live URL: <a href="https://north-peak-digital-iota.vercel.app" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 underline underline-offset-2">https://north-peak-digital-iota.vercel.app</a>
             </p>
           </div>
         </div>
