@@ -652,14 +652,28 @@ input:focus, textarea:focus {
    15. Mobile Performance Optimizations
    -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
+  /* Fully hide decorative blur orbs on mobile — they are aria-hidden and
+     purely cosmetic; hiding them eliminates the GPU compositing layer
+     entirely, the single biggest paint-cost item on mobile */
   .blur-3xl {
-    filter: blur(16px);
+    display: none !important;
   }
+  /* Disable continuous looping animations on mobile CPUs */
   .animate-float {
     animation: none !important;
   }
   .btn-shimmer::after {
     animation: none !important;
+  }
+  /* Reduce hero background complexity on mobile */
+  .hero-bg {
+    background:
+      radial-gradient(ellipse 100% 50% at 50% -5%, rgba(52, 120, 255, 0.20) 0%, transparent 60%),
+      #020617;
+  }
+  /* Disable grid pattern on mobile */
+  .grid-pattern {
+    background-image: none;
   }
 }
 

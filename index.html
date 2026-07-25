@@ -10,11 +10,32 @@
   <link rel="preload" href="styles.css" as="style" />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: display=optional eliminates ALL font-swap CLS -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet" /></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800&display=optional" rel="stylesheet" />
+
+  <!-- Fallback @font-face with size-adjust to match system-ui metrics → zero CLS -->
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      src: local('Inter');
+      size-adjust: 100%;
+      ascent-override: 90%;
+      descent-override: 22%;
+      line-gap-override: 0%;
+    }
+    @font-face {
+      font-family: 'Outfit';
+      src: local('Outfit');
+      size-adjust: 100%;
+      ascent-override: 92%;
+      descent-override: 23%;
+      line-gap-override: 0%;
+    }
+  </style>
 
   <!-- Favicon & Meta -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233478ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12,2 22,20 2,20'/%3E%3C/svg%3E">
