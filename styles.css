@@ -640,7 +640,3 @@ input:focus, textarea:focus {
   .lg\:text-7xl { font-size: 4.5rem; line-height: 1; }
 }
 
-/* --------------------------------------------------------------------------
-   14. Success / Error state utilities
-   -------------------------------------------------------------------------- */
-.bg-emerald-600\/15 { background-color: rgba(5, 150, 105, 0.15); }

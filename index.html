@@ -12,101 +12,13 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" /></noscript>
 
-  <style>
-    /* ===== GLOBAL STYLES ===== */
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+  <!-- Favicon & Meta -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233478ff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12,2 22,20 2,20'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#020617">
 
-    /* Scrollbar styling */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0f172a; }
-    ::-webkit-scrollbar-thumb { background: #3478ff; border-radius: 4px; }
-
-    /* Intersection Observer reveal animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Glassmorphism card */
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    /* Gradient text */
-    .gradient-text {
-      background: linear-gradient(135deg, #3478ff 0%, #8ec3ff 50%, #59a1ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Hero mesh gradient background */
-    .hero-bg {
-      background:
-        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(52, 120, 255, 0.25) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(142, 195, 255, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(26, 86, 245, 0.15) 0%, transparent 50%),
-        #020617;
-    }
-
-    /* Pricing popular glow */
-    .pricing-glow {
-      box-shadow: 0 0 60px rgba(52, 120, 255, 0.2), 0 0 120px rgba(52, 120, 255, 0.08);
-    }
-
-    /* CTA shimmer */
-    .btn-shimmer {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn-shimmer::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -60%;
-      width: 40%;
-      height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-      transform: skewX(-20deg);
-      animation: shimmer 3s infinite;
-    }
-    @keyframes shimmer {
-      0% { left: -60%; }
-      100% { left: 120%; }
-    }
-
-    /* Grid pattern overlay */
-    .grid-pattern {
-      background-image:
-        linear-gradient(rgba(52, 120, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(52, 120, 255, 0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    /* Mobile nav overlay */
-    .mobile-nav-overlay {
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    .mobile-nav-overlay.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .mobile-nav-overlay:not(.hidden) {
-      opacity: 1;
-      visibility: visible;
-    }
-  </style>
 </head>
 
 <body class="bg-surface-950 text-surface-200 font-sans antialiased">
@@ -380,7 +292,7 @@
               <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">SJ</div>
               <div>
                 <p class="text-white font-semibold text-sm">Sarah Jensen</p>
-                <p class="text-surface-200/50 text-xs">CMO, VeloTech Solutions</p>
+                <p class="text-surface-200/60 text-xs">CMO, VeloTech Solutions</p>
               </div>
             </div>
           </article>
@@ -403,7 +315,7 @@
               <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-600 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">MR</div>
               <div>
                 <p class="text-white font-semibold text-sm">Marcus Rivera</p>
-                <p class="text-surface-200/50 text-xs">Founder, Oasis Commerce</p>
+                <p class="text-surface-200/60 text-xs">Founder, Oasis Commerce</p>
               </div>
             </div>
           </article>
@@ -426,7 +338,7 @@
               <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-rose-600 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">AK</div>
               <div>
                 <p class="text-white font-semibold text-sm">Anika Kapoor</p>
-                <p class="text-surface-200/50 text-xs">VP Marketing, Nimbus Health</p>
+                <p class="text-surface-200/60 text-xs">VP Marketing, Nimbus Health</p>
               </div>
             </div>
           </article>
@@ -747,16 +659,16 @@
       <!-- Divider -->
       <div class="border-t border-white/5 pt-8">
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p class="text-surface-200/40 text-xs">
+          <p class="text-surface-200/60 text-xs">
             &copy; 2026 NorthPeak Digital. All rights reserved.
           </p>
 
           <!-- STRICT Footer Credit -->
           <div class="text-center sm:text-right">
-            <p class="text-surface-200/50 text-xs">
+            <p class="text-surface-200/60 text-xs">
               Built for <a href="https://digitalheroesco.com" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 underline underline-offset-2 transition-colors">Digital Heroes</a> Training Task
             </p>
-            <p class="text-surface-200/40 text-xs mt-1">
+            <p class="text-surface-200/60 text-xs mt-1">
               Live URL: <a href="https://north-peak-digital-iota.vercel.app" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 underline underline-offset-2">https://north-peak-digital-iota.vercel.app</a>
             </p>
           </div>
