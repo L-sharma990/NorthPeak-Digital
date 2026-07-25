@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NorthPeak Digital — Elevate Your Digital Presence</title>
+  <meta name="description" content="NorthPeak Digital is a full-service digital agency specializing in web development, branding, SEO, and growth marketing. Get a free consultation today." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['Outfit', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50:  '#eef6ff',
+              100: '#d9eaff',
+              200: '#bcdaff',
+              300: '#8ec3ff',
+              400: '#59a1ff',
+              500: '#3478ff',
+              600: '#1a56f5',
+              700: '#1543e1',
+              800: '#1737b6',
+              900: '#19338f',
+              950: '#142157',
+            },
+            surface: {
+              50:  '#f8fafc',
+              100: '#f1f5f9',
+              200: '#e2e8f0',
+              800: '#1e293b',
+              900: '#0f172a',
+              950: '#020617',
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out forwards',
+            'slide-up': 'slideUp 0.6s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' },
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #3478ff; border-radius: 4px; }
+
+    /* Intersection Observer reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Glassmorphism card */
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #3478ff 0%, #8ec3ff 50%, #59a1ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Hero mesh gradient background */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(52, 120, 255, 0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(142, 195, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(26, 86, 245, 0.15) 0%, transparent 50%),
+        #020617;
+    }
+
+    /* Pricing popular glow */
+    .pricing-glow {
+      box-shadow: 0 0 60px rgba(52, 120, 255, 0.2), 0 0 120px rgba(52, 120, 255, 0.08);
+    }
+
+    /* CTA shimmer */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform: skewX(-20deg);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0% { left: -60%; }
+      100% { left: 120%; }
+    }
+
+    /* Grid pattern overlay */
+    .grid-pattern {
+      background-image:
+        linear-gradient(rgba(52, 120, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(52, 120, 255, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav-overlay {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .mobile-nav-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .mobile-nav-overlay:not(.hidden) {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+
+<body class="bg-surface-950 text-surface-200 font-sans antialiased">
+
+  <!-- ============================= -->
+  <!--        SKIP NAVIGATION        -->
+  <!-- ============================= -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-400">
+    Skip to main content
+  </a>
+
+  <!-- ============================= -->
+  <!--           HEADER/NAV          -->
+  <!-- ============================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="site-header">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between" aria-label="Primary navigation">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-2 group" aria-label="NorthPeak Digital home">
+        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:shadow-brand-500/40 transition-shadow">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polygon points="12 2 22 20 2 20"></polygon>
+          </svg>
+        </div>
+        <span class="font-display font-bold text-lg text-white tracking-tight">NorthPeak<span class="text-brand-400">.</span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-surface-200" role="list">
+        <li><a href="#services" class="hover:text-brand-400 transition-colors duration-200">Services</a></li>
+        <li><a href="#results" class="hover:text-brand-400 transition-colors duration-200">Results</a></li>
+        <li><a href="#pricing" class="hover:text-brand-400 transition-colors duration-200">Pricing</a></li>
+        <li><a href="#contact" class="hover:text-brand-400 transition-colors duration-200">Contact</a></li>
+      </ul>
+
+      <!-- Desktop CTA -->
+      <a href="#contact" class="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-brand-600/25 hover:shadow-brand-500/40" aria-label="Get a free consultation">
+        Let's Talk
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+
+      <!-- Mobile menu toggle -->
+      <button type="button" class="md:hidden p-2 text-surface-200 hover:text-white transition-colors" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" id="menu-icon-open">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden" aria-hidden="true" id="menu-icon-close">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile nav overlay -->
+    <div id="mobile-menu" class="mobile-nav-overlay hidden md:hidden fixed inset-0 top-[72px] bg-surface-950/95 backdrop-blur-xl z-40" role="dialog" aria-label="Mobile navigation menu">
+      <ul class="flex flex-col items-center gap-6 pt-16 text-lg font-medium" role="list">
+        <li><a href="#services" class="text-surface-200 hover:text-brand-400 transition-colors mobile-nav-link">Services</a></li>
+        <li><a href="#results" class="text-surface-200 hover:text-brand-400 transition-colors mobile-nav-link">Results</a></li>
+        <li><a href="#pricing" class="text-surface-200 hover:text-brand-400 transition-colors mobile-nav-link">Pricing</a></li>
+        <li><a href="#contact" class="text-surface-200 hover:text-brand-400 transition-colors mobile-nav-link">Contact</a></li>
+        <li class="pt-4">
+          <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3 bg-brand-600 text-white font-semibold rounded-xl shadow-lg shadow-brand-600/25 mobile-nav-link">
+            Let's Talk
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+
+  <!-- ============================= -->
+  <!--         MAIN CONTENT          -->
+  <!-- ============================= -->
+  <main id="main-content">
+
+    <!-- ========================= -->
+    <!--       HERO SECTION        -->
+    <!-- ========================= -->
+    <section id="hero" class="hero-bg relative min-h-screen flex items-center overflow-hidden grid-pattern" aria-labelledby="hero-heading">
+
+      <!-- Decorative orbs -->
+      <div class="absolute top-1/4 -left-32 w-96 h-96 bg-brand-600/10 rounded-full blur-3xl animate-float" aria-hidden="true"></div>
+      <div class="absolute bottom-1/4 -right-32 w-80 h-80 bg-brand-400/8 rounded-full blur-3xl animate-float" style="animation-delay: -3s;" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 relative z-10">
+        <div class="max-w-3xl">
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium text-brand-300 mb-8 animate-fade-in">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+            Now Accepting New Clients for Q3 2026
+          </div>
+
+          <h1 id="hero-heading" class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-white mb-6 animate-slide-up">
+            We Build Digital<br />
+            Experiences That<br />
+            <span class="gradient-text">Drive Growth</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-surface-200/80 max-w-xl mb-10 animate-slide-up" style="animation-delay: 0.15s;">
+            NorthPeak Digital transforms ambitious brands into market leaders through strategy, design, and cutting-edge technology.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-4 animate-slide-up" style="animation-delay: 0.3s;">
+            <a href="#contact" class="btn-shimmer inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-2xl transition-all duration-300 shadow-xl shadow-brand-600/25 hover:shadow-brand-500/40 hover:-translate-y-0.5" aria-label="Get a free consultation">
+              Get a Free Consultation
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#results" class="inline-flex items-center justify-center gap-2 px-8 py-4 glass text-white font-semibold rounded-2xl hover:bg-white/10 transition-all duration-300" aria-label="View our recent work">
+              View Our Work
+            </a>
+          </div>
+
+          <!-- Trust stats -->
+          <div class="flex flex-wrap gap-8 sm:gap-12 mt-16 pt-8 border-t border-white/10 animate-slide-up" style="animation-delay: 0.45s;">
+            <div>
+              <p class="text-2xl sm:text-3xl font-display font-bold text-white">150+</p>
+              <p class="text-sm text-surface-200/60 mt-1">Projects Delivered</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-display font-bold text-white">98%</p>
+              <p class="text-sm text-surface-200/60 mt-1">Client Retention</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-display font-bold text-white">4.9★</p>
+              <p class="text-sm text-surface-200/60 mt-1">Average Rating</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================= -->
+    <!--     SERVICES SECTION      -->
+    <!-- ========================= -->
+    <section id="services" class="relative py-24 md:py-32 bg-surface-950 grid-pattern" aria-labelledby="services-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <p class="text-brand-400 font-semibold text-sm uppercase tracking-widest mb-3">What We Do</p>
+          <h2 id="services-heading" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            Services Built for Scale
+          </h2>
+          <p class="text-surface-200/70 text-lg">
+            End-to-end digital solutions crafted to accelerate your growth — from strategy through execution.
+          </p>
+        </div>
+
+        <!-- Services grid — 6 cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- Service 1: Web Development -->
+          <article class="reveal glass rounded-2xl p-7 group hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 rounded-xl bg-brand-600/15 flex items-center justify-center mb-5 group-hover:bg-brand-600/25 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3478ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Web Development</h3>
+            <p class="text-surface-200/70 text-sm leading-relaxed">High-performance websites and web apps built with modern frameworks, optimized for speed and conversion.</p>
+          </article>
+
+          <!-- Service 2: UI/UX Design -->
+          <article class="reveal glass rounded-2xl p-7 group hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.05s;">
+            <div class="w-12 h-12 rounded-xl bg-purple-600/15 flex items-center justify-center mb-5 group-hover:bg-purple-600/25 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">UI/UX Design</h3>
+            <p class="text-surface-200/70 text-sm leading-relaxed">Research-driven interfaces that delight users and reduce friction — from wireframes to polished prototypes.</p>
+          </article>
+
+          <!-- Service 3: SEO & Content -->
+          <article class="reveal glass rounded-2xl p-7 group hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.1s;">
+            <div class="w-12 h-12 rounded-xl bg-emerald-600/15 flex items-center justify-center mb-5 group-hover:bg-emerald-600/25 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">SEO &amp; Content</h3>
+            <p class="text-surface-200/70 text-sm leading-relaxed">Dominate search rankings with technical SEO audits, keyword strategy, and content that earns organic traffic.</p>
+          </article>
+
+          <!-- Service 4: Brand Strategy -->
+          <article class="reveal glass rounded-2xl p-7 group hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.15s;">
+            <div class="w-12 h-12 rounded-xl bg-amber-600/15 flex items-center justify-center mb-5 group-hover:bg-amber-600/25 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Brand Strategy</h3>
+            <p class="text-surface-200/70 text-sm leading-relaxed">Craft a compelling brand identity — from positioning and messaging to visual systems that resonate with your audience.</p>
+          </article>
+
+          <!-- Service 5: Paid Advertising -->
+          <article class="reveal glass rounded-2xl p-7 group hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.2s;">
+            <div class="w-12 h-12 rounded-xl bg-rose-600/15 flex items-center justify-center mb-5 group-hover:bg-rose-600/25 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Paid Advertising</h3>
+            <p class="text-surface-200/70 text-sm leading-relaxed">Maximize ROAS with precision-targeted campaigns across Google, Meta, and LinkedIn — backed by real-time analytics.</p>
+          </article>
+
+          <!-- Service 6: Analytics & CRO -->
+          <article class="reveal glass rounded-2xl p-7 group hover:bg-white/[0.07] transition-all duration-300 hover:-translate-y-1" style="transition-delay: 0.25s;">
+            <div class="w-12 h-12 rounded-xl bg-cyan-600/15 flex items-center justify-center mb-5 group-hover:bg-cyan-600/25 transition-colors">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-2">Analytics &amp; CRO</h3>
+            <p class="text-surface-200/70 text-sm leading-relaxed">Turn data into decisions with advanced analytics, A/B testing, and conversion rate optimization that lifts revenue.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================= -->
+    <!--   RESULTS / TESTIMONIALS  -->
+    <!-- ========================= -->
+    <section id="results" class="relative py-24 md:py-32 bg-surface-900 overflow-hidden" aria-labelledby="results-heading">
+
+      <!-- Background accent -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-600/5 rounded-full blur-3xl" aria-hidden="true"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Section header -->
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <p class="text-brand-400 font-semibold text-sm uppercase tracking-widest mb-3">Proven Results</p>
+          <h2 id="results-heading" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            Trusted by Industry Leaders
+          </h2>
+          <p class="text-surface-200/70 text-lg">
+            Our clients don't just grow — they dominate. Here's what they have to say.
+          </p>
+        </div>
+
+        <!-- Results metrics -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 reveal">
+          <div class="glass rounded-2xl p-6 text-center">
+            <p class="text-3xl sm:text-4xl font-display font-bold gradient-text">340%</p>
+            <p class="text-sm text-surface-200/60 mt-2">Average ROI Increase</p>
+          </div>
+          <div class="glass rounded-2xl p-6 text-center">
+            <p class="text-3xl sm:text-4xl font-display font-bold gradient-text">2.4x</p>
+            <p class="text-sm text-surface-200/60 mt-2">Lead Generation Lift</p>
+          </div>
+          <div class="glass rounded-2xl p-6 text-center">
+            <p class="text-3xl sm:text-4xl font-display font-bold gradient-text">67%</p>
+            <p class="text-sm text-surface-200/60 mt-2">Bounce Rate Reduction</p>
+          </div>
+          <div class="glass rounded-2xl p-6 text-center">
+            <p class="text-3xl sm:text-4xl font-display font-bold gradient-text">#1</p>
+            <p class="text-sm text-surface-200/60 mt-2">Search Rankings Achieved</p>
+          </div>
+        </div>
+
+        <!-- Testimonial cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Testimonial 1 -->
+          <article class="reveal glass rounded-2xl p-8 flex flex-col">
+            <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars rating">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote class="flex-1">
+              <p class="text-surface-200/80 text-sm leading-relaxed italic">
+                "NorthPeak completely transformed our online presence. Within 3 months our organic traffic grew 280% and we're now ranking #1 for our core keywords. Truly world-class work."
+              </p>
+            </blockquote>
+            <div class="flex items-center gap-3 mt-6 pt-6 border-t border-white/10">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">SJ</div>
+              <div>
+                <p class="text-white font-semibold text-sm">Sarah Jensen</p>
+                <p class="text-surface-200/50 text-xs">CMO, VeloTech Solutions</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 2 -->
+          <article class="reveal glass rounded-2xl p-8 flex flex-col" style="transition-delay: 0.1s;">
+            <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars rating">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote class="flex-1">
+              <p class="text-surface-200/80 text-sm leading-relaxed italic">
+                "The redesign of our e-commerce platform by NorthPeak led to a 185% increase in conversions. Their attention to UX detail and performance optimization is unmatched."
+              </p>
+            </blockquote>
+            <div class="flex items-center gap-3 mt-6 pt-6 border-t border-white/10">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-600 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">MR</div>
+              <div>
+                <p class="text-white font-semibold text-sm">Marcus Rivera</p>
+                <p class="text-surface-200/50 text-xs">Founder, Oasis Commerce</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 3 -->
+          <article class="reveal glass rounded-2xl p-8 flex flex-col" style="transition-delay: 0.2s;">
+            <div class="flex gap-1 mb-4" aria-label="5 out of 5 stars rating">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <blockquote class="flex-1">
+              <p class="text-surface-200/80 text-sm leading-relaxed italic">
+                "Their paid advertising strategy cut our cost-per-lead by 60% while doubling volume. NorthPeak doesn't just execute — they think strategically about every dollar spent."
+              </p>
+            </blockquote>
+            <div class="flex items-center gap-3 mt-6 pt-6 border-t border-white/10">
+              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-rose-600 flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">AK</div>
+              <div>
+                <p class="text-white font-semibold text-sm">Anika Kapoor</p>
+                <p class="text-surface-200/50 text-xs">VP Marketing, Nimbus Health</p>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================= -->
+    <!--      PRICING SECTION      -->
+    <!-- ========================= -->
+    <section id="pricing" class="relative py-24 md:py-32 bg-surface-950 grid-pattern" aria-labelledby="pricing-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+          <p class="text-brand-400 font-semibold text-sm uppercase tracking-widest mb-3">Pricing</p>
+          <h2 id="pricing-heading" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+            Transparent, Scalable Plans
+          </h2>
+          <p class="text-surface-200/70 text-lg">
+            No hidden fees. Choose the plan that fits your ambitions — upgrade anytime.
+          </p>
+        </div>
+
+        <!-- Pricing cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+
+          <!-- BASIC Plan -->
+          <article class="reveal glass rounded-2xl p-8 flex flex-col" aria-label="Basic pricing plan">
+            <h3 class="text-lg font-semibold text-white mb-1">Basic</h3>
+            <p class="text-surface-200/60 text-sm mb-6">Perfect for startups finding their footing.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-display font-bold text-white">$1,499</span>
+              <span class="text-surface-200/50 text-sm">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1" role="list">
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                5-page responsive website
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Basic SEO setup &amp; audit
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Monthly analytics report
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Email support (48h response)
+              </li>
+            </ul>
+            <a href="#contact" class="block text-center py-3.5 px-6 border border-white/15 text-white font-semibold rounded-xl hover:bg-white/5 transition-all duration-200" aria-label="Get started with the Basic plan">
+              Get Started
+            </a>
+          </article>
+
+          <!-- PRO Plan (Highlighted) -->
+          <article class="reveal glass rounded-2xl p-8 flex flex-col relative pricing-glow border-brand-500/30 md:-mt-4 md:mb-0" aria-label="Pro pricing plan, most popular" style="border: 1px solid rgba(52, 120, 255, 0.3);">
+            <!-- Popular badge -->
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-brand-600 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-lg shadow-brand-600/30">
+              Most Popular
+            </div>
+            <h3 class="text-lg font-semibold text-white mb-1 mt-2">Pro</h3>
+            <p class="text-surface-200/60 text-sm mb-6">For growing businesses ready to scale fast.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-display font-bold gradient-text">$3,999</span>
+              <span class="text-surface-200/50 text-sm">/month</span>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1" role="list">
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Custom web app development
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Full SEO + content strategy
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Paid ads management (2 platforms)
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Weekly reporting &amp; strategy calls
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                CRO &amp; A/B testing
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Priority Slack support
+              </li>
+            </ul>
+            <a href="#contact" class="btn-shimmer block text-center py-3.5 px-6 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-brand-600/25" aria-label="Get started with the Pro plan">
+              Get Started
+            </a>
+          </article>
+
+          <!-- ENTERPRISE Plan -->
+          <article class="reveal glass rounded-2xl p-8 flex flex-col" aria-label="Enterprise pricing plan" style="transition-delay: 0.1s;">
+            <h3 class="text-lg font-semibold text-white mb-1">Enterprise</h3>
+            <p class="text-surface-200/60 text-sm mb-6">Bespoke solutions for high-growth companies.</p>
+            <div class="mb-8">
+              <span class="text-4xl font-display font-bold text-white">Custom</span>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1" role="list">
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Fully custom platform build
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Omnichannel marketing suite
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Dedicated account team
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                Real-time dashboards &amp; BI
+              </li>
+              <li class="flex items-start gap-3 text-sm text-surface-200/80">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                SLA-backed 2h support
+              </li>
+            </ul>
+            <a href="#contact" class="block text-center py-3.5 px-6 border border-white/15 text-white font-semibold rounded-xl hover:bg-white/5 transition-all duration-200" aria-label="Contact us about the Enterprise plan">
+              Contact Us
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================= -->
+    <!--     CONTACT SECTION       -->
+    <!-- ========================= -->
+    <section id="contact" class="relative py-24 md:py-32 bg-surface-900" aria-labelledby="contact-heading">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+          <!-- Left column — info -->
+          <div class="reveal">
+            <p class="text-brand-400 font-semibold text-sm uppercase tracking-widest mb-3">Get In Touch</p>
+            <h2 id="contact-heading" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+              Let's Build Something<br />
+              <span class="gradient-text">Extraordinary</span>
+            </h2>
+            <p class="text-surface-200/70 text-lg mb-10 max-w-md">
+              Ready to elevate your digital presence? Fill out the form and our team will get back to you within 24 hours with a tailored strategy.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-brand-600/15 flex items-center justify-center shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3478ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium text-sm">Email</p>
+                  <p class="text-surface-200/60 text-sm">hello@northpeakdigital.com</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-brand-600/15 flex items-center justify-center shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3478ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium text-sm">Location</p>
+                  <p class="text-surface-200/60 text-sm">Denver, CO — Working Globally</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-10 h-10 rounded-xl bg-brand-600/15 flex items-center justify-center shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3478ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <p class="text-white font-medium text-sm">Response Time</p>
+                  <p class="text-surface-200/60 text-sm">Within 24 hours, guaranteed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column — form -->
+          <div class="reveal" style="transition-delay: 0.15s;">
+            <form id="contact-form" class="glass rounded-2xl p-8 space-y-6" novalidate aria-label="Contact form">
+
+              <!-- Name field -->
+              <div>
+                <label for="contact-name" class="block text-sm font-medium text-surface-200 mb-2">Full Name</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  placeholder="Jane Smith"
+                  autocomplete="name"
+                  class="w-full px-4 py-3 rounded-xl bg-surface-950/60 border border-white/10 text-white placeholder-surface-200/30 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all text-sm"
+                  aria-required="true"
+                />
+                <p class="text-red-400 text-xs mt-1.5 hidden" id="name-error" role="alert" aria-live="polite"></p>
+              </div>
+
+              <!-- Email field -->
+              <div>
+                <label for="contact-email" class="block text-sm font-medium text-surface-200 mb-2">Email Address</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="jane@company.com"
+                  autocomplete="email"
+                  class="w-full px-4 py-3 rounded-xl bg-surface-950/60 border border-white/10 text-white placeholder-surface-200/30 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all text-sm"
+                  aria-required="true"
+                />
+                <p class="text-red-400 text-xs mt-1.5 hidden" id="email-error" role="alert" aria-live="polite"></p>
+              </div>
+
+              <!-- Message field -->
+              <div>
+                <label for="contact-message" class="block text-sm font-medium text-surface-200 mb-2">Your Message</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell us about your project goals, timeline, and budget..."
+                  class="w-full px-4 py-3 rounded-xl bg-surface-950/60 border border-white/10 text-white placeholder-surface-200/30 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all text-sm resize-none"
+                  aria-required="true"
+                ></textarea>
+                <p class="text-red-400 text-xs mt-1.5 hidden" id="message-error" role="alert" aria-live="polite"></p>
+              </div>
+
+              <!-- Submit button -->
+              <button
+                type="submit"
+                id="contact-submit"
+                class="btn-shimmer w-full py-4 bg-brand-600 hover:bg-brand-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-brand-600/25 hover:shadow-brand-500/40 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-surface-900"
+                aria-label="Submit contact form"
+              >
+                Send Message
+              </button>
+
+              <!-- Success message (hidden by default) -->
+              <div id="form-success" class="hidden text-center py-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600/15 text-emerald-400 rounded-xl text-sm font-medium">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  Message sent successfully! We'll be in touch soon.
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================= -->
+  <!--           FOOTER              -->
+  <!-- ============================= -->
+  <footer class="bg-surface-950 border-t border-white/5 py-12" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+
+        <!-- Brand column -->
+        <div>
+          <a href="#hero" class="flex items-center gap-2 mb-4" aria-label="NorthPeak Digital home">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="12 2 22 20 2 20"></polygon>
+              </svg>
+            </div>
+            <span class="font-display font-bold text-white tracking-tight">NorthPeak<span class="text-brand-400">.</span></span>
+          </a>
+          <p class="text-surface-200/50 text-sm max-w-xs">
+            Elevating digital experiences since 2019. Strategy, design, and technology — unified under one roof.
+          </p>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <h3 class="text-white font-semibold text-sm mb-4">Quick Links</h3>
+          <ul class="space-y-2" role="list">
+            <li><a href="#services" class="text-surface-200/50 hover:text-brand-400 text-sm transition-colors">Services</a></li>
+            <li><a href="#results" class="text-surface-200/50 hover:text-brand-400 text-sm transition-colors">Results</a></li>
+            <li><a href="#pricing" class="text-surface-200/50 hover:text-brand-400 text-sm transition-colors">Pricing</a></li>
+            <li><a href="#contact" class="text-surface-200/50 hover:text-brand-400 text-sm transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Social / Connect -->
+        <div>
+          <h3 class="text-white font-semibold text-sm mb-4">Connect</h3>
+          <div class="flex gap-3">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-brand-600/20 transition-colors" aria-label="Visit NorthPeak Digital on Twitter">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-surface-200/60"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-brand-600/20 transition-colors" aria-label="Visit NorthPeak Digital on LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-surface-200/60"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-brand-600/20 transition-colors" aria-label="Visit NorthPeak Digital on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-surface-200/60"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-white/5 pt-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-surface-200/40 text-xs">
+            &copy; 2026 NorthPeak Digital. All rights reserved.
+          </p>
+
+          <!-- STRICT Footer Credit -->
+          <div class="text-center sm:text-right">
+            <p class="text-surface-200/50 text-xs">
+              Built for <a href="https://digitalheroesco.com" target="_blank" rel="noopener noreferrer" class="text-brand-400 hover:text-brand-300 underline underline-offset-2 transition-colors">Digital Heroes</a> Training Task
+            </p>
+            <p class="text-surface-200/40 text-xs mt-1">
+              Live URL: <span class="text-surface-200/50">[Insert Deployed Link Here]</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================= -->
+  <!--      VANILLA JAVASCRIPT       -->
+  <!-- ============================= -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ==============================
+      // 1. HEADER SCROLL EFFECT
+      // ==============================
+      const header = document.getElementById('site-header');
+      let lastScrollY = 0;
+
+      function handleHeaderScroll() {
+        const scrollY = window.scrollY;
+        if (scrollY > 60) {
+          header.classList.add('bg-surface-950/80', 'backdrop-blur-xl', 'shadow-lg', 'shadow-black/10');
+        } else {
+          header.classList.remove('bg-surface-950/80', 'backdrop-blur-xl', 'shadow-lg', 'shadow-black/10');
+        }
+        lastScrollY = scrollY;
+      }
+
+      window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+      handleHeaderScroll();
+
+
+      // ==============================
+      // 2. MOBILE NAVIGATION TOGGLE
+      // ==============================
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIconOpen = document.getElementById('menu-icon-open');
+      const menuIconClose = document.getElementById('menu-icon-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      let menuOpen = false;
+
+      function toggleMobileMenu() {
+        menuOpen = !menuOpen;
+        mobileMenu.classList.toggle('hidden', !menuOpen);
+        menuIconOpen.classList.toggle('hidden', menuOpen);
+        menuIconClose.classList.toggle('hidden', !menuOpen);
+        menuBtn.setAttribute('aria-expanded', String(menuOpen));
+        document.body.style.overflow = menuOpen ? 'hidden' : '';
+      }
+
+      menuBtn.addEventListener('click', toggleMobileMenu);
+
+      // Close menu when a nav link is clicked
+      mobileNavLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (menuOpen) toggleMobileMenu();
+        });
+      });
+
+
+      // ==============================
+      // 3. INTERSECTION OBSERVER (REVEAL)
+      // ==============================
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      revealElements.forEach(function (el) {
+        revealObserver.observe(el);
+      });
+
+
+      // ==============================
+      // 4. CONTACT FORM VALIDATION
+      // ==============================
+      const form = document.getElementById('contact-form');
+      const nameInput = document.getElementById('contact-name');
+      const emailInput = document.getElementById('contact-email');
+      const messageInput = document.getElementById('contact-message');
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+      const messageError = document.getElementById('message-error');
+      const formSuccess = document.getElementById('form-success');
+      const submitBtn = document.getElementById('contact-submit');
+
+      // Email regex — standard RFC-compatible pattern
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      function showError(inputEl, errorEl, message) {
+        errorEl.textContent = message;
+        errorEl.classList.remove('hidden');
+        inputEl.classList.add('border-red-500/60');
+        inputEl.classList.remove('border-white/10');
+        inputEl.setAttribute('aria-invalid', 'true');
+        inputEl.setAttribute('aria-describedby', errorEl.id);
+      }
+
+      function clearError(inputEl, errorEl) {
+        errorEl.textContent = '';
+        errorEl.classList.add('hidden');
+        inputEl.classList.remove('border-red-500/60');
+        inputEl.classList.add('border-white/10');
+        inputEl.removeAttribute('aria-invalid');
+        inputEl.removeAttribute('aria-describedby');
+      }
+
+      // Clear errors on input
+      nameInput.addEventListener('input', function () { clearError(nameInput, nameError); });
+      emailInput.addEventListener('input', function () { clearError(emailInput, emailError); });
+      messageInput.addEventListener('input', function () { clearError(messageInput, messageError); });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let isValid = true;
+
+        // Name validation
+        const nameVal = nameInput.value.trim();
+        if (!nameVal) {
+          showError(nameInput, nameError, 'Please enter your full name.');
+          isValid = false;
+        } else if (nameVal.length < 2) {
+          showError(nameInput, nameError, 'Name must be at least 2 characters.');
+          isValid = false;
+        } else {
+          clearError(nameInput, nameError);
+        }
+
+        // Email validation
+        const emailVal = emailInput.value.trim();
+        if (!emailVal) {
+          showError(emailInput, emailError, 'Please enter your email address.');
+          isValid = false;
+        } else if (!emailRegex.test(emailVal)) {
+          showError(emailInput, emailError, 'Please enter a valid email address (e.g., jane@company.com).');
+          isValid = false;
+        } else {
+          clearError(emailInput, emailError);
+        }
+
+        // Message validation
+        const messageVal = messageInput.value.trim();
+        if (!messageVal) {
+          showError(messageInput, messageError, 'Please enter a message.');
+          isValid = false;
+        } else if (messageVal.length < 10) {
+          showError(messageInput, messageError, 'Message must be at least 10 characters.');
+          isValid = false;
+        } else {
+          clearError(messageInput, messageError);
+        }
+
+        // If all valid, show success
+        if (isValid) {
+          form.reset();
+          submitBtn.style.display = 'none';
+          formSuccess.classList.remove('hidden');
+
+          // Reset after 5 seconds
+          setTimeout(function () {
+            formSuccess.classList.add('hidden');
+            submitBtn.style.display = '';
+          }, 5000);
+        }
+      });
+
+
+      // ==============================
+      // 5. SMOOTH SCROLL ACTIVE LINK
+      // ==============================
+      // Add active state to nav based on scroll position
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav ul a[href^="#"]');
+
+      function highlightActiveNav() {
+        const scrollY = window.scrollY + 120;
+        sections.forEach(function (section) {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          const id = section.getAttribute('id');
+
+          if (scrollY >= top && scrollY < top + height) {
+            navLinks.forEach(function (link) {
+              link.classList.remove('text-brand-400');
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('text-brand-400');
+              }
+            });
+          }
+        });
+      }
+
+      window.addEventListener('scroll', highlightActiveNav, { passive: true });
+
+    })();
+  </script>
+
+</body>
+</html>
